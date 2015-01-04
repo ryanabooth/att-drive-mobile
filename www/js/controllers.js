@@ -24,27 +24,26 @@ angular.module('starter.controllers', [])
     }
   ];
 
-  $scope.showPopup = function() {
-    $scope.data = {rating: '??'};
+  $scope.requestRide = function(driverName) {
+    $scope.data = {};
 
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
-      template: '<label class="item item-input"><input type="text" ng-model="data.name" placeholder="Name"></label>'+
-                '<br/>'+
-                '<label class="item item-input"><input type="text" ng-model="data.phoneNumber" placeholder="Phone Number"></label>',
-      title: 'Add a Friend',
-      subTitle: 'Add a new driver to your list',
+      template: '<label class="item item-input"><input type="text" ng-model="data.address" placeholder="Current Address"></label>',
+      title: 'Request a ride',
+      subTitle: 'Send a ride request to ' + driverName + '?',
       scope: $scope,
       buttons: [
         { text: 'Cancel' },
         {
-          text: '<b>Save</b>',
+          text: '<b>Send</b>',
           type: 'button-positive',
           onTap: function(e) {
-            if (!$scope.data.name || !$scope.data.phoneNumber) {
+            if (!$scope.data.address) {
               e.preventDefault();
             } else {
-              $scope.contacts.push($scope.data);
+              // TODO - ride request
+              console.dir($scope.data);
             }
           }
         }
@@ -56,17 +55,17 @@ angular.module('starter.controllers', [])
   };
 
   // A confirm dialog
-  $scope.requestRide = function(driverName) {
-    var confirmPopup = $ionicPopup.confirm({
-      title: 'Request ride',
-      template: 'Send a ride request to ' + driverName + '?'
-    });
-    confirmPopup.then(function(res) {
-      if(res) {
-        // TODO - send ride request
-      } else {
-        // Do nothing
-      }
-    });
-  };
+  // $scope.requestRide = function(driverName) {
+  //   var confirmPopup = $ionicPopup.confirm({
+  //     title: 'Request ride',
+  //     template: 'Send a ride request to ' + driverName + '?'
+  //   });
+  //   confirmPopup.then(function(res) {
+  //     if(res) {
+  //       // TODO - send ride request
+  //     } else {
+  //       // Do nothing
+  //     }
+  //   });
+  // };
 });
