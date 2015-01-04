@@ -1,4 +1,18 @@
 /* Empty. Add your own CSS if you like */
+
+@font-face {
+    font-family: 'OmnesATT-Light';
+    src: url('../fonts/OmnesATT-Light.otf');
+}
+@font-face {
+    font-family: 'OmnesATT-Medium';
+    src: url('../fonts/OmnesATT-Medium.otf');
+}
+@font-face {
+    font-family: 'OmnesATT-Regular';
+    src: url('../fonts/OmnesATT-Regular.otf');
+}
+
 .ionic-scroll {
 	background-color: #f5f5f5;
 }
@@ -20,4 +34,35 @@
 .item .driver {
 	font-size: 16px;
 	margin-top: 24px;
+}
+
+#drive-bar {
+	background-color: #087ab5;
+	opacity: 0.8;
+	font-family: 'OmnesATT-Light', sans-serif;
+}
+
+#personal-card {
+	margin-top: 52px;
+}
+
+.ionic-scroll {
+	margin-top: -43px;
+	padding-top: 43px;
+	background-image: url('../img/background.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.rating-green {
+	color: green;
+}
+.rating-yellow {
+	color: yellow;
+}
+.rating-oranage {
+	color: oranage;
+}
+.rating-red {
+	color: red;
 }

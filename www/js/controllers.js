@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
-.controller('MainCtrl', function($scope, $timeout, $ionicPopup) {
+.controller('MainCtrl', function($scope, $timeout, $ionicPopup, $http) {
   $scope.user = {
     name: 'Germane Howitz',
-    rating: 75
+    rating: 92
   };
 
   // TODO - possibly request this list
@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
     {
       name: 'Groutz Herman',
       phoneNumber: '1234567890',
-      rating: 97
+      rating: 85
     },
     {
       name: 'Johanne Serbian',
@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
   ];
 
   $scope.requestRide = function(driverName) {
-    $scope.data = {};
+    $scope.data = {address: '5757 Wayne Newton Boulevard, Las Vegas, NV 89119'};
 
     // An elaborate, custom popup
     var myPopup = $ionicPopup.show({
@@ -43,6 +43,16 @@ angular.module('starter.controllers', [])
               e.preventDefault();
             } else {
               // TODO - ride request
+              var post = {
+                user: 'Ryan Booth',
+                address: $scope.data.address
+              };
+              $http.post('http://24bf3ec1.ngrok.com/api/pickups', {payload: post})
+              .then(function() {
+                $scope.status = 'Request Pending';
+              }, function(error) {
+                console.error(error);
+              });
               console.dir($scope.data);
             }
           }

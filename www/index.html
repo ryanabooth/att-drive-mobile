@@ -26,17 +26,18 @@
   <body ng-app="starter">
 
     <ion-pane ng-controller="MainCtrl">
-      <ion-header-bar class="bar-positive">
+      <ion-header-bar id="drive-bar" class="bar-positive">
         <h1 class="title">Just Drive</h1>
       </ion-header-bar>
       <ion-content>
-        <div class="card">
+        <div id="personal-card" class="card">
           <div class="item item-avatar">
             <img src="img/avatar.png">
+              <span class="driver pull-right">{{user.name}}</span>
             <h2 class="rating">
               {{user.rating}}<small class="rating-total">/100</small>
-              <span class="driver pull-right">{{user.name}}</span>
             </h2>
+            <p ng-show="status">{{status}}</p>
           </div>
         </div>
         <div class="list">
